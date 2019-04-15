@@ -2,7 +2,7 @@
 //*Given that condition 2.smax<p+q *//
 //*Generating test cases when satisfies both conditions*//
 
-#include <stdio.h>
+include <stdio.h>
 int main()
 {
 int Max[10][10], need[10][10], alloc[10][10], avail[10], completed[10], safeSequence[10];
@@ -18,16 +18,14 @@ for(i = 0; i< p; i++)
 printf("\n\nEnter the no of resources : ");
 scanf("%d", &r);
 
-printf("\n\nEnter the Available Resources : ");
-for(i = 0; i < r; i++)
-		scanf("%d", &avail[i]);	
+printf("\n\nEnter the Max Matrix for each process : ");
+for(i = 0; i < p; i++)
+{
+	printf("\nFor process %d : ", i + 1);
+	for(j = 0; j < r; j++)
+		scanf("%d", &Max[i][j]);
+}
 
-
-	for(i = 0; i < p; i++)
-		for(j = 0; j < r; j++)
-			need[i][j] = Max[i][j] - alloc[i][j];
-			
-			
 printf("\n\nEnter the allocation for each process : ");
 for(i = 0; i < p; i++)
 {
@@ -36,35 +34,18 @@ for(i = 0; i < p; i++)
 		scanf("%d", &alloc[i][j]);	
 }
 
+printf("\n\nEnter the Available Resources : ");
+for(i = 0; i < r; i++)
+		scanf("%d", &avail[i]);	
 
 
-printf("\n\nEnter the Max Allocation for each process : ");
-for(i = 0; i < p; i++)
-{
-	printf("\nFor process %d : ", i + 1);
-	for(j = 0; j < r; j++)
-		scanf("%d", &Max[i][j]);
-}
-
-printf("Summation of the Max Need of each process is :");
-for(i=0;i<p;i++)
-{
-	printf("\n For Process %d :",i+j,"%d");
-}
-
-
-for(i = 0; i < p; i++)
-	{
-		for( j = 0; j < r; j++)
-		printf("\nReamining Need is %d", Max[i][j]-alloc[i][j]);
-		printf("\t\t");
+	for(i = 0; i < p; i++)
+		for(j = 0; j < r; j++)
+			need[i][j] = Max[i][j] - alloc[i][j];
 		
-	}
-
-
-	do
+do
 {
-	printf("\n Max Allocation:\tAllocation :\n");
+	printf("\n Max matrix:\tAllocation matrix:\n");
 	for(i = 0; i < p; i++)
 	{
 		for( j = 0; j < r; j++)
@@ -120,6 +101,5 @@ if(count == p)
 }
 else
 	printf("\nThe system is in an unsafe state!!");
-	printf("\nBecause It doesnt satisfy any of the given condition");
-    return 0;
+getch();
 }
