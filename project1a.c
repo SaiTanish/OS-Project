@@ -2,19 +2,19 @@
 //*Given that condition 2.smax<p+q *//
 //*Generating test cases when satisfies both conditions*//
 
-include <stdio.h>
+#include <stdio.h>
 int main()
 {
+system("COLOR 3F");
 int Max[10][10], need[10][10], alloc[10][10], avail[10], completed[10], safeSequence[10];
 int p, r, i, j, process, count;
 count = 0;
-
 printf("Enter the no of processes : ");
 scanf("%d", &p);
 
 for(i = 0; i< p; i++)
 	completed[i] = 0;
-
+system("COLOR 0A");
 printf("\n\nEnter the no of resources : ");
 scanf("%d", &r);
 
@@ -26,6 +26,7 @@ for(i = 0; i < p; i++)
 		scanf("%d", &Max[i][j]);
 }
 
+system("COLOR 09");
 printf("\n\nEnter the allocation for each process : ");
 for(i = 0; i < p; i++)
 {
@@ -34,6 +35,7 @@ for(i = 0; i < p; i++)
 		scanf("%d", &alloc[i][j]);	
 }
 
+system("COLOR 0C");
 printf("\n\nEnter the Available Resources : ");
 for(i = 0; i < r; i++)
 		scanf("%d", &avail[i]);	
@@ -45,6 +47,7 @@ for(i = 0; i < r; i++)
 		
 do
 {
+	system("COLOR 0E");
 	printf("\n Max matrix:\tAllocation matrix:\n");
 	for(i = 0; i < p; i++)
 	{
@@ -78,6 +81,7 @@ do
 
 	if(process != -1)
 	{
+		system("COLOR 0A");
 		printf("\nProcess %d runs to completion!", process + 1);
 		safeSequence[count] = process + 1;
 		count++;
@@ -100,6 +104,7 @@ if(count == p)
 	printf(">\n");
 }
 else
+    system("COLOR 0C");
 	printf("\nThe system is in an unsafe state!!");
 getch();
 }
